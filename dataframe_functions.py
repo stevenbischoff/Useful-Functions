@@ -35,10 +35,10 @@ def dataframe_subset_noncategorical(df, restrict_dict_floor = {},
   df1 = df
 
   for key in restrict_dict_floor.keys():
-    df1 = df1.loc[df[key] >= restrict_dict_ceiling[key]]
+    df1 = df1.loc[df1[key] >= restrict_dict_floor[key]]
 
   for key in restrict_dict_ceiling.keys():
-    df1 = df1.loc[df[key] <= restrict_dict_ceiling[key]]
+    df1 = df1.loc[df1[key] <= restrict_dict_ceiling[key]]
 
   return copy.deepcopy(df1)
   
