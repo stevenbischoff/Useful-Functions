@@ -1,5 +1,17 @@
 import copy
 
+def dataframe_subset_combined(df, restrict_dict_categorical = {},
+                              restrict_dict_floor = {},
+                              restrict_dict_ceiling = {}):
+  """
+  Parameters
+  """
+
+  df1 = dataframe_subset_categorical(df, restrict_dict_categorical)
+
+  return dataframe_subset_noncategorical(df1, restrict_dict_floor, restrict_dict_ceiling)
+  
+
 def dataframe_subset_categorical(df, restrict_dict = {}):
   """
   Parameters
@@ -8,8 +20,6 @@ def dataframe_subset_categorical(df, restrict_dict = {}):
       keys : names of df columns
       values : lists of column values to include
   """
-
-  import copy
 
   df1 = df
 
