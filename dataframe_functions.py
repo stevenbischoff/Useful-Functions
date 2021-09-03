@@ -1,13 +1,14 @@
 import copy
 
-def dataframe_subset_combined(df, restrict_dict_categorical = {},
+def dataframe_subset_combined(df, restrict_dict = {},
                               restrict_dict_floor = {},
                               restrict_dict_ceiling = {}):
   """
   Parameters
+    see dataframe_subset_categorical, dataframe_subset_noncategorical
   """
 
-  df1 = dataframe_subset_categorical(df, restrict_dict_categorical)
+  df1 = dataframe_subset_categorical(df, restrict_dict)
 
   return dataframe_subset_noncategorical(df1, restrict_dict_floor, restrict_dict_ceiling)
   
