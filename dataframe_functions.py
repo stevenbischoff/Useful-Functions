@@ -52,5 +52,18 @@ def dataframe_subset_noncategorical(df, restrict_dict_floor = {},
     df1 = df1.loc[df1[key] <= restrict_dict_ceiling[key]]
 
   return copy.deepcopy(df1)
+
+def dollar_to_float(df, column_list):
+  # Designed to change a Google Sheets dollar amount to float
+  """
+  Parameters
+    df : pandas dataframe
+    column_list : column
+  """
+
+  df[column_list] = df[column_list].apply(lambda x: x.str.replace('$','',regex=False))
+  df[column_list] = df[column_list].apply(lambda x: x.str.replace(',','',regex=False)).astype('float')
+  
+  return df
   
     
